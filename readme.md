@@ -73,7 +73,7 @@ themes/pb/                # → Root of theme
 ├── composer.lock         # → Composer lock file (never edit)  
 ├── package-lock.json     # → NPM lock file (never edit)  
 ├── yarn-lock.json        # → Yarn lock file (never edit) 
-├── pb-child.zip          # → Child Theme 
+├── pb-child.zip          # → Child Theme  
 └── public/               # → Built theme assets (never edit)  
   
 
