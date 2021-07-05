@@ -3,14 +3,13 @@ Disclaimer: this is early dev stage of project. Don`t use it on production.
 
 ### Reqirements
 
-WordPress: 4.7
-Tested up to: 4.7
-Requires PHP: 8.1
-
+[![WordPress](https://img.shields.io/badge/wordpress-4.7-green?logo=wordpress&style=for-the-badge)](https://wordpress.org/)
+[![PHP](https://img.shields.io/badge/PHP-8.0-green?logo=php&style=for-the-badge)](https://php.org/)
+  
 Dev requires the following dependencies:
 
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/) 
+[![Composer](https://img.shields.io/badge/composer-2.0-green?logo=php&style=for-the-badge)](https://getcomposer.org/)
+[![NodeJS](https://img.shields.io/badge/nodejs-14.17-green?logo=php&style=for-the-badge)](https://nodejs.org/)
 
 ### Installation
 
