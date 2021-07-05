@@ -1,6 +1,40 @@
 <h1>Pb WordPress Theme</h1>
 Disclaimer: this is early dev stage of project. Don`t use it on production.
 
+### Reqirements
+
+WordPress: 4.7
+Tested up to: 4.7
+Requires PHP: 8.1
+
+Dev requires the following dependencies:
+
+- [Node.js](https://nodejs.org/)
+- [Composer](https://getcomposer.org/) 
+
+### Installation
+
+1. In your admin panel, go to Appearance > Themes and click the Add New button.
+2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
+3. Click Activate to use your new theme right away.
+
+### Frequently Asked Questions
+
+= Does this theme support any plugins? =
+
+geliostrans includes support for WooCommerce and for Infinite Scroll in Jetpack.
+
+### Changelog
+* Initial release
+
+### Credits
+* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+
+Inspired by:
+* Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Sage https://roots.io/sage/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+
+
 ### File structure
 themes/pb/                # → Root of theme  
 ├── index.php             # → Theme template wrapper  
@@ -8,7 +42,7 @@ themes/pb/                # → Root of theme
 ├── functions.php         # → Theme bootloader  
 ├── screenshot.png        # → Theme screenshot for WP admin  
 ├── package.json          # → Node.js dependencies and scripts  
-├── composer.json         # → Autoloading for `app/` files  
+├── composer.json         # → Autoloading for `src/` files  
 ├── assets/               # → Theme assets and templates  
 │   ├── fonts/            # → Theme fonts  
 │   ├── images/           # → Theme images  
@@ -44,19 +78,3 @@ themes/pb/                # → Root of theme
 └── public/               # → Built theme assets (never edit)  
   
 
-
-
-
-
-
-├── bootstrap/            # → Acorn bootstrap
-│   ├── cache/            # → Acorn cache location (never edit)
-│   └── app.php           # → Acorn application bootloader
-├── config/               # → Config files
-│   ├── app.php           # → Application configuration
-│   ├── assets.php        # → Asset configuration
-│   ├── filesystems.php   # → Filesystems configuration
-│   ├── logging.php       # → Logging configuration
-│   └── view.php          # → View configuration
-├── storage/              # → Storage location for cache (never edit)
-└── webpack.mix.js        # → Laravel Mix configuration
