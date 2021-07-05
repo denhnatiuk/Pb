@@ -21,7 +21,6 @@ Dev requires the following dependencies:
 
 = Does this theme support any plugins? =
 
-geliostrans includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 ### Changelog
 * Initial release
@@ -73,7 +72,8 @@ themes/pb/                # → Root of theme
 ├── vendor/               # → Composer packages (never edit)  
 ├── composer.lock         # → Composer lock file (never edit)  
 ├── package-lock.json     # → NPM lock file (never edit)  
-├── yarn-lock.json        # → Yarn lock file (never edit)  
+├── yarn-lock.json        # → Yarn lock file (never edit) 
+├── pb-child.zip          # → Child Theme 
 └── public/               # → Built theme assets (never edit)  
   
 
