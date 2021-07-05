@@ -3,13 +3,13 @@ Disclaimer: this is early dev stage of project. Don`t use it on production.
 
 ### Reqirements
 
-[![WordPress](https://img.shields.io/badge/wordpress-4.7-green?logo=wordpress&style=for-the-badge)](https://wordpress.org/)
-[![PHP](https://img.shields.io/badge/PHP-8.0-green?logo=php&style=for-the-badge)](https://php.org/)
+[![WordPress](https://img.shields.io/badge/wordpress-4.7-green?logo=wordpress&style=for-the-badge)](https://wordpress.org/)  
+[![PHP](https://img.shields.io/badge/PHP-8.0-green?logo=php&style=for-the-badge)](https://php.org/)  
   
 Dev requires the following dependencies:
 
-[![Composer](https://img.shields.io/badge/composer-2.0-green?logo=php&style=for-the-badge)](https://getcomposer.org/)
-[![NodeJS](https://img.shields.io/badge/nodejs-14.17-green?logo=php&style=for-the-badge)](https://nodejs.org/)
+[![Composer](https://img.shields.io/badge/composer-2.0-green?logo=composer&style=for-the-badge)](https://getcomposer.org/)  
+[![NodeJS](https://img.shields.io/badge/nodejs-14.17-green?logo=node.js&style=for-the-badge)](https://nodejs.org/)  
 
 ### Installation
 
