@@ -44,7 +44,7 @@ themes/pb/                # → Root of theme
 ├── assets/               # → Theme assets and templates  
 │   ├── fonts/            # → Theme fonts  
 │   ├── images/           # → Theme images  
-│   ├── scripts/          # → Theme javascript  
+│   ├── js/               # → Theme javascript  
 │   ├── scss/             # → Theme stylesheets  
 │   │   ├── components/   # → Component templates  
 │   │   ├── form/         # → Form templates  
@@ -55,7 +55,7 @@ themes/pb/                # → Root of theme
 │       ├── form/         # → Form templates  
 │       ├── layouts/      # → Base templates  
 │       └── partials/     # → Partial templates  
-├── src/                  # → Theme PHP  
+├── inc/                  # → Theme PHP  
 │   ├── Classes/          # → Theme PHP Classes  
 │   ├── View/             # → View models  
 │   ├── Providers/        # → Service providers  
