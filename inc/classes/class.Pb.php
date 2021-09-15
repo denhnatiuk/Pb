@@ -7,9 +7,11 @@ if ( ! class_exists( 'Pb' ) ) {
     final class Pb{
 
         public function __construct($themeConfig) {
+            $this->extendAndOverrideDefaults( $themeConfig );
+            $this->setupLoop( $themeConfig );
+        }
 
-            // $name = wp_get_theme()->get( 'textdomain' );
-
+        private function extendAndOverrideDefaults( $config ) {
             $defaults = (object) array(
                 'ini_set' => array(
                     'upload_max_size'       =>  '64M'
@@ -73,6 +75,7 @@ if ( ! class_exists( 'Pb' ) ) {
                         )
                     )
                     , 'html5' => array(
+
                         'search-form'
                         ,'comment-form'
                         ,'comment-list'
@@ -102,13 +105,7 @@ if ( ! class_exists( 'Pb' ) ) {
                     )
                 )
             );
-            $this->extendAndOverrideDefaults( $themeConfig, $defaults );
-            $this->setupLoop();
-        }
-
-
-        private function extendAndOverrideDefaults( $config ) {
-            $config = $defaults;
+            $config = $this->$defaults;
             return $config;
         }
 
@@ -128,17 +125,17 @@ if ( ! class_exists( 'Pb' ) ) {
                             break;
                         case 'theme_supports':
                             if (is_int($key)){
-                                addSupport($value);
+                                $this->addSupport($value);
                             } else {
-                                addSupport($key, $value);
+                                $this->addSupport($key, $value);
                             }
                             break;
                         case 'stylesheets':
                             //    wp_enqueue_style($key,  get_template_directory() . $value['path'],  $value['dependencies'], $value['version'], 0);
-                            addStyle($key,  $value['path'],  $value['dependencies'], $value['version'], false);
+                            $this->addStyle($key,  $value['path'],  $value['dependencies'], $value['version'], false);
                             break;
                         case 'scripts':
-                            addScript($key,  $value['path'],  $value['dependencies'], $value['version'], true);
+                            $this->addScript($key,  $value['path'],  $value['dependencies'], $value['version'], true);
                             break;
                         default:
                             $this->admin_warn( $key );

@@ -17,6 +17,7 @@ function pb_scripts() {
 
 	wp_enqueue_style('theme-css', get_stylesheet_uri(), array(), esc_html( wp_get_theme()->get( 'Version' ) ));
 	wp_enqueue_style('css', get_template_directory_uri() . '/assets/css/main.css', array(), $css_version);
+	// wp_enqueue_style('css-vars', get_template_directory_uri() . '/assets/css/colors.php', array(), $css_version);
 
 	wp_style_add_data( 'theme-rtl', 'rtl', 'replace' );
 	// wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/lib/bootstrap/dist/css/bootstrap.min.css', array(), $css_version);

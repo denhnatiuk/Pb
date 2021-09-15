@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit();
 
-add_action( 'basic_theme_setup', 'pb' );
+add_action( 'basic_theme_setup', esc_html( wp_get_theme()->get( 'TextDomain' ) ) );
 function basic_theme_setup(){
     require_once  get_template_directory() . '/inc/classes/class.Pb.php';
 }

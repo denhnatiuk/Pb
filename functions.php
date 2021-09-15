@@ -20,9 +20,9 @@ $INC_components = array(
     '/helpers.php'                           // Helpers 
     , '/setup.php'                           // Theme setup.
     , '/enqueue.php'                         // Enqueue scripts and styles.
-    // , '/theme-settings.php'                 // Theme settings.
+    , '/theme-settings.php'                  // Theme settings.
     // , '/plugins.php'                        // Add preinstalled plugins.
-    // , '/customizer.php'                     // Add admin customizations.
+    // , '/customizer/customizer.php'                      // Add admin customizations.
 );
 
 // Load WooCommerce functions if WooCommerce is activated.

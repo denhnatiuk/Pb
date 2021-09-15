@@ -1,7 +1,7 @@
 <?php
 
 /** Admin warn about minimum PHP version */
-if ( ! version_compare( PHP_VERSION, '8.0', '>=' ) ) {
+if ( ! version_compare( PHP_VERSION, '7.0', '>=' ) ) {
 
 	add_action( 'admin_notices', 'pb_fail_php_version' );  
 
