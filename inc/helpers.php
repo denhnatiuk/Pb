@@ -1,7 +1,7 @@
 <?php
 
 /** Admin warn about minimum PHP version */
-if ( ! version_compare( PHP_VERSION, '7.0', '>=' ) ) {
+if ( ! version_compare( PHP_VERSION, '8.0', '>=' ) ) {
 
 	add_action( 'admin_notices', 'pb_fail_php_version' );  
 
@@ -28,10 +28,10 @@ if ( ! version_compare( get_bloginfo( 'version' ), '5.7', '>=' ) ) {
 
 }
 /** Admin recomendation to Install Gutenberg */
-if (!function_exists('register_block_type')) {
+if ( !function_exists('register_block_type') ) {
 
     add_action( 'admin_notices', 'pb_recommend_gutenberg' );
-    
+        
     function pb_recommend_gutenberg(){
         $message      = sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' recommend to use %s for WordPress. Theme would not work properly.', 'pb' ), ' Gutenberg WYSIWYG' );
         $html_message = sprintf( '<div class="warn">%s</div>', wpautop( $message ) );

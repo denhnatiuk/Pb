@@ -6,9 +6,35 @@ if ( ! class_exists( 'Pb' ) ) {
 
     final class Pb{
 
-        public function __construct($themeConfig) {
-            $this->extendAndOverrideDefaults( $themeConfig );
-            $this->setupLoop( $themeConfig );
+        private $instance;
+
+        public function __construct( $themeConfig ) {
+            if ( ! version_compare( PHP_VERSION, '8.0', '>=' ) ) {
+                $this->actionAdminNotice ( 
+                    $this->adminNotice( 
+                        sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' requires PHP version %s+. Theme would not work properly.', 'pb' ), '8.0' )
+                        , 'warning' 
+                    ) 
+                );                            
+            }
+            if ( ! version_compare( get_bloginfo( 'version' ), '5.7', '>=' ) ) {
+                $this->actionAdminNotice (
+                    $this->adminNotice( 
+                        sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' requires WordPress version %s+. Theme would not work properly.', 'pb' ), '4.7' )
+                        , 'warning' 
+                    )
+                ); 
+            }
+            if ( !function_exists('register_block_type') ) {
+                $this->actionAdminNotice (
+                    $this->adminNotice( 
+                        sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' recommend to use %s for WordPress. Theme would not work properly.', 'pb' ), ' Gutenberg WYSIWYG' )
+                        , 'warning' 
+                    ) 
+                ); 
+            }
+            $this->setupLoop( $this->extendAndOverrideDefaults( $themeConfig ) );
+            
         }
 
         private function extendAndOverrideDefaults( $config ) {
@@ -19,21 +45,21 @@ if ( ! class_exists( 'Pb' ) ) {
                     , 'max_execution_time'  =>  '300'
                 )
                 , 'textdomain' => array(
-                    'name' => esc_html( wp_get_theme()->get( 'TextDomain' ) )
-                    , 'path' => '/languages'                
+                    //'name', 'path to theme subfolder'
+                    esc_html( wp_get_theme()->get( 'TextDomain' ) ), '/languages'                
                 )
                 , 'theme_supports' => array(
                     'title-tag'
                     , 'custom-logo' => array(
-                        'height'               => 100,
-                        'width'                => 100,
-                        'flex-height'          => true,
-                        'flex-width'           => true,
-                        'header-text'          => array( 
+                        'height'                 => 100
+                        , 'width'                => 100
+                        , 'flex-height'          => true
+                        , 'flex-width'           => true
+                        , 'header-text'          => array( 
                             'site-title'
                             , 'site-description' 
-                        ),
-                        'unlink-homepage-logo' => true, 
+                        )
+                        , 'unlink-homepage-logo' => true                         
                     )
                     , 'post-tumbnails'
                     , 'wp-block-styles'         
@@ -75,7 +101,7 @@ if ( ! class_exists( 'Pb' ) ) {
                         )
                     )
                     , 'html5' => array(
-
+    
                         'search-form'
                         ,'comment-form'
                         ,'comment-list'
@@ -86,12 +112,12 @@ if ( ! class_exists( 'Pb' ) ) {
                     )
                 )
                 , 'stylesheets' => array(
-                    'theme-css' => array(
+                    'theme' => array(
                         'path' => '/style.css'
                         , 'version' => esc_html( wp_get_theme()->get( 'Version' ) )
                         , 'dependencies' => array()
                     )
-                    ,'css' => array(
+                    ,'main' => array(
                         'path' => '/assets/css/main.css'
                         , 'version' => esc_html( wp_get_theme()->get( 'Version' ) )
                         , 'dependencies' => array()
@@ -105,8 +131,13 @@ if ( ! class_exists( 'Pb' ) ) {
                     )
                 )
             );
-            $config = $this->$defaults;
-            return $config;
+            
+            if (!empty($config)){
+                foreach ($config as $property => $argument) {
+                    $defaults->{$property} = $argument;
+                }
+            }
+            return $defaults;
         }
 
         private function setupLoop( $config ) {
@@ -119,8 +150,8 @@ if ( ! class_exists( 'Pb' ) ) {
                             break;
                         case 'textdomain':
                             load_theme_textdomain( 
-                                esc_html( wp_get_theme()->get( 'TextDomain' ) )
-                                , get_template_directory_uri() . $value['path']
+                                $key
+                                , get_template_directory_uri() . $value
                             );
                             break;
                         case 'theme_supports':
@@ -130,6 +161,9 @@ if ( ! class_exists( 'Pb' ) ) {
                                 $this->addSupport($key, $value);
                             }
                             break;
+                        case 'remove_supports':
+                            $this->removeSupport($value);
+                            break;
                         case 'stylesheets':
                             //    wp_enqueue_style($key,  get_template_directory() . $value['path'],  $value['dependencies'], $value['version'], 0);
                             $this->addStyle($key,  $value['path'],  $value['dependencies'], $value['version'], false);
@@ -138,15 +172,35 @@ if ( ! class_exists( 'Pb' ) ) {
                             $this->addScript($key,  $value['path'],  $value['dependencies'], $value['version'], true);
                             break;
                         default:
-                            $this->admin_warn( $key );
+                            $this->actionAdminNotice ( 
+                                $this->adminNotice( 
+                                    sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' config contains unexpected preseted option for %s, so Theme may not work properly. See documentation.', wp_get_theme()->get( 'Name' ) )
+                                        , $group 
+                                    )
+                                    , 'warning' 
+                                ) 
+                            );                            
+                            
                     }
                 }
             }
         }
 
-        private function  admin_warn( $bug ) {
-            $message      = sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' has no preseted option for %s+, so Theme may not work properly. See documentation.', wp_get_theme()->get( 'Name' ) ), $bug );
-            $html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
+        public function actionAdminNotice ( $function ) {
+            add_action ( 'admin_notices', function() use ( $function ) {
+                $function;
+            });
+        }
+
+        private function adminNotice( $message, $noticeType = null ) {
+
+            if (!empty($noticeType)) {
+                $class = $noticeType;
+            } else {
+                $class = 'info';
+            }            
+            
+            $html_message = sprintf( '<div class="notice notice-'. $class .'">%s</div>', wpautop( $message ) );
             echo wp_kses_post( $html_message );
         }
 
@@ -163,22 +217,11 @@ if ( ! class_exists( 'Pb' ) ) {
         }
 
         private function addSupport ( $feature, $options = null ) {
-            $this->actionAfterSetup ( function() use ( $feature, $options ) {            
-                if ($options) {
-                    add_theme_support( $feature, $options );
-                } else {
-                    add_theme_support( $feature );
-                }            
-            });
-            return $this;
+            add_theme_support( $feature, $options );
         }
 
-
         private function removeSupport($feature) {
-            $this->actionAfterSetup(function() use ($feature){
-                remove_theme_support($feature);
-            });
-            return $this;
+            remove_theme_support($feature);
         }
 
         private function addImageSize($name, $width = 0, $height = 0, $crop = false) {
@@ -269,6 +312,33 @@ if ( ! class_exists( 'Pb' ) ) {
                 }
                 return $menu_items;
             }
+        }
+
+        public function actionExtendHead($function){
+            add_action('wp_head', function() use ($function){
+                $function();
+            });
+        }
+
+        public function addLinkTag( $rel ){
+            switch ($rel){
+                case "canonical":
+                    break;    
+                case "manifest":
+                    // mainfest added only to child theme
+                    if (is_child_theme()){
+                        // TODO: checkout where manifest might be to work properly (in root folder?)
+                        echo '<link rel="manifest" href="' . get_template_directory_uri() . '/manifest.json">';
+                    }  
+                    break;
+                case "profile":
+                    break;
+                case "pingback":
+                    break;
+                case "":
+                    break;                
+                default:
+            }            
         }
     }
 

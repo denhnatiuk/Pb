@@ -77,8 +77,16 @@ h4{ font-size: 1.25rem}
 h5{ font-size: 1.125rem}
 h6{ font-size: 1rem}
 
-
+.site-branding{
+    display:flex;
+    flex-flow:row;
+}
+.brand-logo{
+    display: block;
+}
 .brand-title{
+    display: flex;
+    flex-flow: column;
     color:var(--brand-color-main);
 }
 .brand-title__kicker,

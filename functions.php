@@ -17,10 +17,10 @@ defined( 'PB_VERSION' ) || $PB_VERSION = wp_get_theme()->get( 'Version' );
 $INC_dir = get_template_directory() . '/inc';
 
 $INC_components = array(
-    '/helpers.php'                           // Helpers 
-    , '/setup.php'                           // Theme setup.
-    , '/enqueue.php'                         // Enqueue scripts and styles.
-    , '/theme-settings.php'                  // Theme settings.
+    '/setup.php'                           // Theme setup.
+    // , '/helpers.php'                           // Helpers 
+    // , '/enqueue.php'                         // Enqueue scripts and styles.
+    // , '/theme-settings.php'                  // Theme settings.
     // , '/plugins.php'                        // Add preinstalled plugins.
     // , '/customizer/customizer.php'                      // Add admin customizations.
 );
