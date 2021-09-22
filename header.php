@@ -9,7 +9,7 @@
  * Description: Site header file.
 */
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -69,7 +69,7 @@
         </div>
     </header>
 
-    
+    <h2></h2>
     <?php
     $supports = (object) array(
         'title-tag' => null

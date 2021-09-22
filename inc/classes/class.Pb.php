@@ -43,6 +43,7 @@ if ( ! class_exists( 'Pb' ) ) {
                     'upload_max_size'       =>  '64M'
                     , 'post_max_size'       =>  '64M'
                     , 'max_execution_time'  =>  '300'
+                    ,
                 )
                 , 'textdomain' => array(
                     //'name', 'path to theme subfolder'
@@ -125,11 +126,32 @@ if ( ! class_exists( 'Pb' ) ) {
                 )
                 , 'scripts' => array(
                     'theme-js'  => array(
-                        'path' => '/js/bundle.js'
+                        'path' => '/assets/js/bundle.js'
                         , 'version' => esc_html( wp_get_theme()->get( 'Version' ) )
                         , 'dependencies' => array()
                     )
                 )
+                // , 'metatags' => array (
+                //     'link'  => array(
+                //         'canonical' => ''
+                //         , 'mainfest' => ''
+                //         , 'wlwmainfest' => ''
+                //         , 'opengraph' => ''
+                //         , 'profile' => ''
+                //         , 'pingback' => ''
+                //         , 'prefetch' => ''
+                //         , 'dns-prefetch' => ''
+                //         // , 'multisite' => ''
+                //     )
+                //     , 'meta' => array(
+                //         // <meta http-equiv="Content-Security-Policy" content="default-src https://cdn.example.net; child-src 'none'; object-src 'none'">
+                //         , 'CSP' => "default-src 'self'; child-src 'none'; object-src 'none'"
+                //         , 'robots' => 'index, follow'
+                //         , 'keywords' => ''
+                //         , 'generator' => 'remove'
+                        
+                //     )
+                // )
             );
             
             if (!empty($config)){
@@ -171,6 +193,8 @@ if ( ! class_exists( 'Pb' ) ) {
                         case 'scripts':
                             $this->addScript($key,  $value['path'],  $value['dependencies'], $value['version'], true);
                             break;
+                        case 'site_meta':
+                            $this->addSiteMeta( $key, $value);
                         default:
                             $this->actionAdminNotice ( 
                                 $this->adminNotice( 
@@ -320,16 +344,16 @@ if ( ! class_exists( 'Pb' ) ) {
             });
         }
 
-        public function addLinkTag( $rel ){
-            switch ($rel){
+        public function addSiteMeta( $key, $value ){
+            switch ($key){
                 case "canonical":
                     break;    
                 case "manifest":
                     // mainfest added only to child theme
-                    if (is_child_theme()){
+                    // if (is_child_theme()){
                         // TODO: checkout where manifest might be to work properly (in root folder?)
                         echo '<link rel="manifest" href="' . get_template_directory_uri() . '/manifest.json">';
-                    }  
+                    // }  
                     break;
                 case "profile":
                     break;
@@ -339,6 +363,10 @@ if ( ! class_exists( 'Pb' ) ) {
                     break;                
                 default:
             }            
+        }
+
+        public function addAnalytics() {
+            
         }
     }
 

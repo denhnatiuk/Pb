@@ -30,11 +30,12 @@ defined( 'ABSPATH' ) || exit();
     }
 // }
 
-
-add_action( 'wp_head', 'inc_manifest_link' );
-function inc_manifest_link() {   
-    // mainfest added only to child theme
-    if (is_child_theme()){
-        echo '<link rel="manifest" href="' . get_template_directory_uri() . '/manifest.json">';
-    }  
-}
+// add_action( 'wp_head', 'inc_manifest_link' );
+// function inc_manifest_link() {   
+//     // mainfest added only to child theme
+//     if (is_child_theme()){
+//         echo '<link rel="manifest" href="' . get_template_directory_uri() . '/manifest.json">';
+//     }  
+// }
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
