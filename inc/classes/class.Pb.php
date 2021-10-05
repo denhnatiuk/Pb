@@ -39,13 +39,18 @@ if ( ! class_exists( 'Pb' ) ) {
 
         private function extendAndOverrideDefaults( $config ) {
             $defaults = (object) array(
-                'ini_set' => array(
-                    'upload_max_size'       =>  '64M'
-                    , 'post_max_size'       =>  '64M'
-                    , 'max_execution_time'  =>  '300'
-                    ,
-                )
-                , 'textdomain' => array(
+                // TODO: while PSR-1 demands that files 
+                //   SHOULD either declare symbols (classes, functions, constants, etc.) 
+                //   OR cause side-effects (e.g. generate output, change .ini settings, etc.) 
+                //   but SHOULD NOT do both, ini_set must be stand alone
+
+                // 'ini_set' => array(
+                //     'upload_max_size'       =>  '64M'
+                //     , 'post_max_size'       =>  '64M'
+                //     , 'max_execution_time'  =>  '300'
+                //     , 'output_buffering'    =>  ''
+                // )
+                'textdomain' => array(
                     //'name', 'path to theme subfolder'
                     esc_html( wp_get_theme()->get( 'TextDomain' ) ), '/languages'                
                 )
@@ -115,19 +120,19 @@ if ( ! class_exists( 'Pb' ) ) {
                 , 'stylesheets' => array(
                     'theme' => array(
                         'path' => '/style.css'
-                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) )
+                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) . "." . filemtime( get_template_directory() . '/style.css') )
                         , 'dependencies' => array()
                     )
                     ,'main' => array(
                         'path' => '/assets/css/main.css'
-                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) )
+                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) . "." . filemtime( get_template_directory() . '/style.css') )
                         , 'dependencies' => array()
                     )
                 )
                 , 'scripts' => array(
                     'theme-js'  => array(
                         'path' => '/assets/js/bundle.js'
-                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) )
+                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) . "." . filemtime( get_template_directory() . '/style.css') )
                         , 'dependencies' => array()
                     )
                 )

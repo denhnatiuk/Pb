@@ -8,7 +8,9 @@
  * 
  * Description: Sidebar file.
 */
-
+?> 
+<aside>
+<?php
 if ( is_active_sidebar( 'left-sidebar' ) ) { 
 ?>
     <ul id="sidebar">
@@ -16,3 +18,4 @@ if ( is_active_sidebar( 'left-sidebar' ) ) {
     </ul>
 <?php 
 } ?>
+</aside>
