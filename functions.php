@@ -20,7 +20,7 @@ $INC_components = array(
     '/setup.php'                           // Theme setup.
     // , '/helpers.php'                           // Helpers 
     // , '/enqueue.php'                         // Enqueue scripts and styles.
-    // , '/theme-settings.php'                  // Theme settings.
+    , '/theme-settings.php'                  // Theme settings.
     // , '/plugins.php'                        // Add preinstalled plugins.
     // , '/customizer/customizer.php'                      // Add admin customizations.
 );

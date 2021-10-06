@@ -1,0 +1,3 @@
+<?
+//silence
+defined('ABSPATH') || die();

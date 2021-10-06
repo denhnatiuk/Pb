@@ -18,11 +18,13 @@ get_header();
 <main id="primary" class="site-main" role="main">
 
 <?php
-if ( have_posts() ) :
-    get_template_part( 'loop' );
-else :
-    get_template_part( 'content', 'none' );
-endif;
+    get_template_part( 'template-parts/content', 'loop' );
+    pb_buffering_Loop_to_JSON(array(
+        'nopaging' => true
+        // , 'numberposts'   => 5
+        // , 'offset'      => 1
+        // , 'category'    => 1
+    ));
 ?>
 
 </main>
@@ -39,5 +41,5 @@ get_footer();
 
     // DEBUG CODE
     // TODO: not for production, remove it before push
-    get_template_part(  'template-parts/temporary', 'themesupports' ); 
+    // get_template_part(  'template-parts/temporary', 'themesupports' ); 
 ?>

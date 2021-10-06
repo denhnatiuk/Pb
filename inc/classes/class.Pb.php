@@ -15,174 +15,58 @@ if ( ! class_exists( 'Pb' ) ) {
                         sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' requires PHP version %s+. Theme would not work properly.', 'pb' ), '8.0' )
                         , 'warning' 
                     ) 
-                );                            
-            }
+                );}
             if ( ! version_compare( get_bloginfo( 'version' ), '5.7', '>=' ) ) {
                 $this->actionAdminNotice (
                     $this->adminNotice( 
                         sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' requires WordPress version %s+. Theme would not work properly.', 'pb' ), '4.7' )
                         , 'warning' 
                     )
-                ); 
-            }
+                );}
             if ( !function_exists('register_block_type') ) {
                 $this->actionAdminNotice (
                     $this->adminNotice( 
                         sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' recommend to use %s for WordPress. Theme would not work properly.', 'pb' ), ' Gutenberg WYSIWYG' )
                         , 'warning' 
                     ) 
-                ); 
-            }
-            $this->setupLoop( $this->extendAndOverrideDefaults( $themeConfig ) );
+                );}
+            $this->setupLoop( $themeConfig );
             
         }
 
-        private function extendAndOverrideDefaults( $config ) {
-            $defaults = (object) array(
-                // TODO: while PSR-1 demands that files 
-                //   SHOULD either declare symbols (classes, functions, constants, etc.) 
-                //   OR cause side-effects (e.g. generate output, change .ini settings, etc.) 
-                //   but SHOULD NOT do both, ini_set must be stand alone
-
-                // 'ini_set' => array(
-                //     'upload_max_size'       =>  '64M'
-                //     , 'post_max_size'       =>  '64M'
-                //     , 'max_execution_time'  =>  '300'
-                //     , 'output_buffering'    =>  ''
-                // )
-                'textdomain' => array(
-                    //'name', 'path to theme subfolder'
-                    esc_html( wp_get_theme()->get( 'TextDomain' ) ), '/languages'                
-                )
-                , 'theme_supports' => array(
-                    'title-tag'
-                    , 'custom-logo' => array(
-                        'height'                 => 100
-                        , 'width'                => 100
-                        , 'flex-height'          => true
-                        , 'flex-width'           => true
-                        , 'header-text'          => array( 
-                            'site-title'
-                            , 'site-description' 
-                        )
-                        , 'unlink-homepage-logo' => true                         
-                    )
-                    , 'post-tumbnails'
-                    , 'wp-block-styles'         
-                    , 'responsive-embeds'       
-                    , 'editor-styles'           
-                    , 'custom-units'            
-                    , 'editor-color-palette' => array(
-                        array(
-                            'name' => esc_attr__( 
-                                'strong magenta'
-                                , esc_html( wp_get_theme()->get( 'TextDomain' ) ) 
-                            )
-                            , 'slug' => 'strong-magenta'
-                            , 'color' => '#a156b4'
-                        )
-                        , array(
-                            'name' => esc_attr__( 
-                                'light grayish magenta'
-                                , esc_html( wp_get_theme()->get( 'TextDomain' ) )
-                            )
-                            , 'slug' => 'light-grayish-magenta'
-                            , 'color' => '#d0a5db'
-                        )
-                        , array(
-                            'name' => esc_attr__( 
-                                'very light gray'
-                                , esc_html( wp_get_theme()->get( 'TextDomain' ) )
-                            )
-                            , 'slug' => 'very-light-gray'
-                            , 'color' => '#eee'
-                        )
-                        , array(
-                            'name' => esc_attr__( 
-                                'very dark gray'
-                                , esc_html( wp_get_theme()->get( 'TextDomain' ) )
-                            )
-                            , 'slug' => 'very-dark-gray'
-                            , 'color' => '#444'
-                        )
-                    )
-                    , 'html5' => array(
-    
-                        'search-form'
-                        ,'comment-form'
-                        ,'comment-list'
-                        ,'gallery'
-                        ,'caption'
-                        ,'style'
-                        ,'script'
-                    )
-                )
-                , 'stylesheets' => array(
-                    'theme' => array(
-                        'path' => '/style.css'
-                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) . "." . filemtime( get_template_directory() . '/style.css') )
-                        , 'dependencies' => array()
-                    )
-                    ,'main' => array(
-                        'path' => '/assets/css/main.css'
-                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) . "." . filemtime( get_template_directory() . '/style.css') )
-                        , 'dependencies' => array()
-                    )
-                )
-                , 'scripts' => array(
-                    'theme-js'  => array(
-                        'path' => '/assets/js/bundle.js'
-                        , 'version' => esc_html( wp_get_theme()->get( 'Version' ) . "." . filemtime( get_template_directory() . '/style.css') )
-                        , 'dependencies' => array()
-                    )
-                )
-                // , 'metatags' => array (
-                //     'link'  => array(
-                //         'canonical' => ''
-                //         , 'mainfest' => ''
-                //         , 'wlwmainfest' => ''
-                //         , 'opengraph' => ''
-                //         , 'profile' => ''
-                //         , 'pingback' => ''
-                //         , 'prefetch' => ''
-                //         , 'dns-prefetch' => ''
-                //         // , 'multisite' => ''
-                //     )
-                //     , 'meta' => array(
-                //         // <meta http-equiv="Content-Security-Policy" content="default-src https://cdn.example.net; child-src 'none'; object-src 'none'">
-                //         , 'CSP' => "default-src 'self'; child-src 'none'; object-src 'none'"
-                //         , 'robots' => 'index, follow'
-                //         , 'keywords' => ''
-                //         , 'generator' => 'remove'
-                        
-                //     )
-                // )
-            );
+        private function extendAndOverrideDefaults( $themeConfig ) {
+            // TODO: maybe use other notation. js with comments or thmth else
+            $defaultConfig = new RecursiveArrayIterator( json_decode( file_get_contents( get_template_directory() . '/inc/config/pb.config.json' ), true ));
             
-            if (!empty($config)){
-                foreach ($config as $property => $argument) {
-                    $defaults->{$property} = $argument;
+            if (!empty($themeConfig)){
+                foreach ($themeConfig as $property => $argument) {
+                    $defaultConfig->{$property} = $argument;
                 }
             }
-            return $defaults;
+
+            return $defaultConfig;
         }
 
-        private function setupLoop( $config ) {
-            
-            foreach ($config as $group => $item){
-                foreach ($item as $key => $value){
-                    switch ($group) {
+        private function setupLoop( $themeConfig ) {
+
+            $config = $this->extendAndOverrideDefaults( $themeConfig );
+
+            // foreach ( $config as $group => $item){
+            if (is_array($config) || is_object($config)) {
+                foreach ($config as $group => $item) {
+                    foreach ($item as $key => $value) {
+                        switch ($group) {
                         case 'ini_set':
-                            @ini_set( $key , $value );
+                            @ini_set($key, $value);
                             break;
                         case 'textdomain':
-                            load_theme_textdomain( 
-                                $key
-                                , get_template_directory_uri() . $value
+                            load_theme_textdomain(
+                                $key,
+                                get_template_directory_uri() . $value
                             );
                             break;
                         case 'theme_supports':
-                            if (is_int($key)){
+                            if (is_int($key)) {
                                 $this->addSupport($value);
                             } else {
                                 $this->addSupport($key, $value);
@@ -193,30 +77,43 @@ if ( ! class_exists( 'Pb' ) ) {
                             break;
                         case 'stylesheets':
                             //    wp_enqueue_style($key,  get_template_directory() . $value['path'],  $value['dependencies'], $value['version'], 0);
-                            $this->addStyle($key,  $value['path'],  $value['dependencies'], $value['version'], false);
+                            $this->addStyle($key, $value['path'], $value['dependencies'], $value['version'], false);
                             break;
                         case 'scripts':
-                            $this->addScript($key,  $value['path'],  $value['dependencies'], $value['version'], true);
+                            $this->addScript($key, $value['path'], $value['dependencies'], $value['version'], true);
                             break;
                         case 'site_meta':
-                            $this->addSiteMeta( $key, $value);
+                            $this->addSiteMeta($key, $value);
+                            // no break
                         default:
-                            $this->actionAdminNotice ( 
-                                $this->adminNotice( 
-                                    sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' config contains unexpected preseted option for %s, so Theme may not work properly. See documentation.', wp_get_theme()->get( 'Name' ) )
-                                        , $group 
-                                    )
-                                    , 'warning' 
-                                ) 
-                            );                            
+                            $this->actionAdminNotice(
+                                $this->adminNotice(
+                                    sprintf(
+                                        esc_html__(wp_get_theme()->get('Name') . ' config contains unexpected preseted option for %s, so Theme may not work properly. See documentation.', wp_get_theme()->get('Name')),
+                                        $group
+                                    ),
+                                    'warning'
+                                )
+                            );
                             
                     }
+                    }
                 }
+            } else {
+                $this->actionAdminNotice(
+                    $this->adminNotice(
+                        sprintf(
+                            esc_html__(wp_get_theme()->get('Name') . ' config contains invalid parameters, so Theme may not work properly. See documentation.', wp_get_theme()->get('Name')),
+                            $config
+                        ),
+                        'warning'
+                    )
+                );                
             }
         }
 
         public function actionAdminNotice ( $function ) {
-            add_action ( 'admin_notices', function() use ( $function ) {
+            add_action ( 'user_admin_notices', function() use ( $function ) {
                 $function;
             });
         }
@@ -229,7 +126,7 @@ if ( ! class_exists( 'Pb' ) ) {
                 $class = 'info';
             }            
             
-            $html_message = sprintf( '<div class="notice notice-'. $class .'">%s</div>', wpautop( $message ) );
+            $html_message = sprintf( '<div class="notice notice-'. $class .'">%s<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>', wpautop( $message ) );
             echo wp_kses_post( $html_message );
         }
 

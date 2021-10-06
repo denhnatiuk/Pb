@@ -9,3 +9,15 @@
  */
 
 defined( 'ABSPATH' ) || exit();
+
+function pb_buffering_Loop_to_JSON( $args = array() ){
+    ob_start();
+    query_posts(array( $args ));
+
+    while (have_posts()) {
+        json_encode(the_post());
+    }
+    $data   =   ob_get_contents();
+    ob_end_clean();
+    // echo $data;
+}
