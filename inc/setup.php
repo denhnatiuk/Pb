@@ -63,3 +63,11 @@ defined( 'ABSPATH' ) || exit();
 // }
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
+
+add_action( 'admin_head', 'pb_hide_notices', 1 );
+function pb_hide_notices(){ 
+    $user = wp_get_current_user(); 
+    if (!($user->roles[0] == 'administrator')) { 
+        remove_all_actions( 'admin_notices' ); 
+    } 
+} 

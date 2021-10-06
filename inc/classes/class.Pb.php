@@ -6,32 +6,23 @@ if ( ! class_exists( 'Pb' ) ) {
 
     final class Pb{
 
-        private $instance;
-
         public function __construct( $themeConfig ) {
             if ( ! version_compare( PHP_VERSION, '8.0', '>=' ) ) {
                 $this->actionAdminNotice ( 
-                    $this->adminNotice( 
                         sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' requires PHP version %s+. Theme would not work properly.', 'pb' ), '8.0' )
                         , 'warning' 
-                    ) 
                 );}
             if ( ! version_compare( get_bloginfo( 'version' ), '5.7', '>=' ) ) {
                 $this->actionAdminNotice (
-                    $this->adminNotice( 
                         sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' requires WordPress version %s+. Theme would not work properly.', 'pb' ), '4.7' )
                         , 'warning' 
-                    )
                 );}
             if ( !function_exists('register_block_type') ) {
                 $this->actionAdminNotice (
-                    $this->adminNotice( 
                         sprintf( esc_html__( wp_get_theme()->get( 'Name' ) . ' recommend to use %s for WordPress. Theme would not work properly.', 'pb' ), ' Gutenberg WYSIWYG' )
                         , 'warning' 
-                    ) 
                 );}
-            $this->setupLoop( $themeConfig );
-            
+            $this->setupLoop( $themeConfig );            
         }
 
         private function extendAndOverrideDefaults( $themeConfig ) {
@@ -87,13 +78,11 @@ if ( ! class_exists( 'Pb' ) ) {
                             // no break
                         default:
                             $this->actionAdminNotice(
-                                $this->adminNotice(
                                     sprintf(
                                         esc_html__(wp_get_theme()->get('Name') . ' config contains unexpected preseted option for %s, so Theme may not work properly. See documentation.', wp_get_theme()->get('Name')),
                                         $group
                                     ),
                                     'warning'
-                                )
                             );
                             
                     }
@@ -101,32 +90,31 @@ if ( ! class_exists( 'Pb' ) ) {
                 }
             } else {
                 $this->actionAdminNotice(
-                    $this->adminNotice(
                         sprintf(
                             esc_html__(wp_get_theme()->get('Name') . ' config contains invalid parameters, so Theme may not work properly. See documentation.', wp_get_theme()->get('Name')),
                             $config
                         ),
                         'warning'
-                    )
                 );                
             }
         }
 
-        public function actionAdminNotice ( $function ) {
-            add_action ( 'user_admin_notices', function() use ( $function ) {
-                $function;
+        public function actionAdminNotice ( $message, $noticeType = null  ) {
+            add_action ( 'admin_notices', function() use ( $message, $noticeType ) {
+                $this->adminNotice( $message, $noticeType);
             });
         }
 
         private function adminNotice( $message, $noticeType = null ) {
 
-            if (!empty($noticeType)) {
+            if ( !empty($noticeType) ) {
                 $class = $noticeType;
             } else {
                 $class = 'info';
             }            
             
-            $html_message = sprintf( '<div class="notice notice-'. $class .'">%s<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>', wpautop( $message ) );
+            $html_message = sprintf( '<div class="notice is-dismissible notice-'. $class .'">%s</div>', wpautop( $message ) );
+
             echo wp_kses_post( $html_message );
         }
 
