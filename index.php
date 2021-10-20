@@ -41,5 +41,5 @@ get_footer();
 
     // DEBUG CODE
     // TODO: not for production, remove it before push
-    // get_template_part(  'template-parts/temporary', 'themesupports' ); 
+    //get_template_part(  'template-parts/temporary', 'themesupports' ); 
 ?>

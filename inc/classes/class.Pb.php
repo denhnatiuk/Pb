@@ -28,13 +28,45 @@ if ( ! class_exists( 'Pb' ) ) {
         private function extendAndOverrideDefaults( $themeConfig ) {
             // TODO: maybe use other notation. js with comments or thmth else
             $defaultConfig = new RecursiveArrayIterator( json_decode( file_get_contents( get_template_directory() . '/inc/config/pb.config.json' ), true ));
-            
-            if (!empty($themeConfig)){
-                foreach ($themeConfig as $property => $argument) {
-                    $defaultConfig->{$property} = $argument;
-                }
-            }
+     
+            if (!empty($themeConfig) && is_array($themeConfig)){
 
+                $overrides = new RecursiveIteratorIterator(new RecursiveArrayIterator($themeConfig));
+                
+                foreach($overrides as $key => $value) {
+                    if( array_key_exists( $key, $defaultConfig )) {
+                        $defaultConfig->$key = $value;
+                    }
+                    // if (is_array($value) && array_key_exists('special_key', $value)) {
+                    //     // Here we replace ALL keys with the same value from 'special_key'
+                    //     $replaced = array_fill(0, count($value), $value['special_key']);
+                    //     $value = array_combine(array_keys($value), $replaced);
+                    //     // Add a new key?
+                    //     $value['new_key'] = 'new value';
+                
+                    //     // Get the current depth and traverse back up the tree, saving the modifications
+                    //     $currentDepth = $completeIterator->getDepth();
+                    //     for ($subDepth = $currentDepth; $subDepth >= 0; $subDepth--) {
+                    //         // Get the current level iterator
+                    //         $subIterator = $completeIterator->getSubIterator($subDepth); 
+                    //         // If we are on the level we want to change, use the replacements ($value) other wise set the key to the parent iterators value
+                    //         $subIterator->offsetSet($subIterator->key(), ($subDepth === $currentDepth ? $value : $completeIterator->getSubIterator(($subDepth+1))->getArrayCopy()));
+                    //     }
+                    // }
+                    // if (!$defaultConfig->$key){
+                        // $defaultConfig[$key] = $value;
+                        // $iterator->getInnerIterator()->offsetSet($key, $value); 
+                    // } else {
+                        
+                    // }
+                    // foreach($recursive as $key => $value) {
+                    //     if ()
+                    // }
+                    // $recursive->getInnerIterator()->offsetSet($key, $value);
+                }
+                
+            }
+            
             return $defaultConfig;
         }
 
@@ -57,8 +89,12 @@ if ( ! class_exists( 'Pb' ) ) {
                             );
                             break;
                         case 'theme_supports':
-                            if (is_int($key)) {
-                                $this->addSupport($value);
+                            if ( is_bool($value)){
+                                if (!$value) {
+                                    $this->removeSupport($key);
+                                } else {
+                                    $this->addSupport($key);    
+                                }
                             } else {
                                 $this->addSupport($key, $value);
                             }
