@@ -16,6 +16,24 @@
             , "header-text": ["site-title", "site-description"]
             , "unlink-homepage-logo": true
         }
+        , "custom-header":{
+            "default-image":""
+            , "random-default":false
+            , "width" : "100%"
+            , "height" : "100vh"
+            , "flex-height" : true
+            , "flex-width" : true
+            , "default-text-color": "#222" 
+            , "header-text" : true
+            , "uploads": true
+            , "wp-head-callback" :""
+            , "admin-head-callback" : ""
+            , "admin-preview-callback" : ""
+            , "video" : true
+            , "video-active-callback" : "is_front_page"
+
+
+        }
         , "post-tumbnails"          : true
         , "wp-block-styles"         : true
         , "responsive-embeds"       : true
