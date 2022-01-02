@@ -35,40 +35,40 @@
     --brand-color-dark: black;
     --brand-color-light: white;
     --brand-color-shade: #222;
-    --brand-color-background: rgba(64,64,64,1);
+    --brand-color-background: rgba(64,64,64,1 );
     --brand-color-accent: #778899;
     --brand-color-accent2: #6980fe;
     --brand-color-text: whitesmoke;
 }
-@media screen and (prefers-color-scheme:dark){
+@media screen and(prefers-color-scheme:dark ) {
     html{
-        --theme-color-main: var(--brand-color-main);
-        --theme-color-dark: var(--brand-color-dark);
-        --theme-color-light: var(brand-color-light);
-        --theme-color-shade: var(--brand-color-shade);
-        --theme-color-background: var(--brand-color-background);
-        --theme-color-accent: var(--brand-color-accent);
-        --theme-color-text: var(--brand-color-text);
+        --theme-color-main: var(--brand-color-main );
+        --theme-color-dark: var(--brand-color-dark );
+        --theme-color-light: var(brand-color-light );
+        --theme-color-shade: var(--brand-color-shade );
+        --theme-color-background: var(--brand-color-background );
+        --theme-color-accent: var(--brand-color-accent );
+        --theme-color-text: var(--brand-color-text );
         transition: all .5s ease-out;
     }
 }
-@media screen and (prefers-color-scheme:light){
+@media screen and(prefers-color-scheme:light ) {
     html{
-        --theme-color-main: var(--brand-color-main);
-        --theme-color-dark: var(--brand-color-light);
-        --theme-color-light: var(--brand-color-dark);
-        --theme-color-shade: var(--brand-color-accent);
-        --theme-color-background: var(--brand-color-light);
-        --theme-color-accent: var(--brand-color-text);
-        --theme-color-text: var(--brand-color-dark);
+        --theme-color-main: var(--brand-color-main );
+        --theme-color-dark: var(--brand-color-light );
+        --theme-color-light: var(--brand-color-dark );
+        --theme-color-shade: var(--brand-color-accent );
+        --theme-color-background: var(--brand-color-light );
+        --theme-color-accent: var(--brand-color-text );
+        --theme-color-text: var(--brand-color-dark );
         transition: all .5s ease-out;
     }
 }  
 
 body{
-    font-family: var(--font-family-sans-serif);
-    background-color: var(--theme-color-background);
-    color: var(--theme-color-text);
+    font-family: var(--font-family-sans-serif );
+    background-color: var(--theme-color-background );
+    color: var(--theme-color-text );
 }
 h1{ font-size: 2rem}
 h2{ font-size: 1.75rem}
@@ -87,7 +87,7 @@ h6{ font-size: 1rem}
 .brand-title{
     display: flex;
     flex-flow: column;
-    color:var(--brand-color-main);
+    color:var(--brand-color-main );
 }
 .brand-title__kicker,
 .brand-title__tagline{

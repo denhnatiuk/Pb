@@ -6,3 +6,4 @@ vendor/
 package-lock.json
 yarn-lock.json
 composer.lock
+themes/

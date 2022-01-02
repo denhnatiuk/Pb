@@ -31,8 +31,6 @@
             , "admin-preview-callback" : ""
             , "video" : true
             , "video-active-callback" : "is_front_page"
-
-
         }
         , "post-tumbnails"          : true
         , "wp-block-styles"         : true

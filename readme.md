@@ -3,13 +3,13 @@ Disclaimer: this is early dev stage of project. Don`t use it on production.
 
 ### Reqirements
 
-[![WordPress](https://img.shields.io/badge/wordpress-4.7-green?logo=wordpress&style=for-the-badge)](https://wordpress.org/)  
-[![PHP](https://img.shields.io/badge/PHP-8.0-green?logo=php&style=for-the-badge)](https://php.org/)
+[![WordPress](https://img.shields.io/badge/wordpress-4.7-green?logo=wordpress&style=for-the-badge )](https://wordpress.org/ )  
+[![PHP](https://img.shields.io/badge/PHP-8.0-green?logo=php&style=for-the-badge )](https://php.org/ )
 
 Dev requires the following dependencies:
 
-[![Composer](https://img.shields.io/badge/composer-2.0-green?logo=composer&style=for-the-badge)](https://getcomposer.org/)  
-[![NodeJS](https://img.shields.io/badge/nodejs-14.17-green?logo=node.js&style=for-the-badge)](https://nodejs.org/)
+[![Composer](https://img.shields.io/badge/composer-2.0-green?logo=composer&style=for-the-badge )](https://getcomposer.org/ )  
+[![NodeJS](https://img.shields.io/badge/nodejs-14.17-green?logo=node.js&style=for-the-badge )](https://nodejs.org/ )
 
 ### Installation
 
@@ -30,12 +30,12 @@ Dev requires the following dependencies:
 
 ### Credits
 
-- normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+- normalize.css https://necolas.github.io/normalize.css/,(C ) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT )
 
 Inspired by:
 
-- Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-- Sage https://roots.io/sage/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+- Underscores https://underscores.me/,(C ) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html )
+- Sage https://roots.io/sage/,(C ) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html )
 
 ### File structure
 
@@ -73,10 +73,10 @@ themes/pb/ # → Root of theme
 │ ├── wiki/ # → Theme wiki  
 │ ├── forum/ # → Theme forum  
 │ └── LICENSE.TXT # → Theme license  
-├── node_modules/ # → Node packages (never edit)  
-├── vendor/ # → Composer packages (never edit)  
-├── composer.lock # → Composer lock file (never edit)  
-├── package-lock.json # → NPM lock file (never edit)  
-├── yarn-lock.json # → Yarn lock file (never edit)
+├── node_modules/ # → Node packages(never edit )  
+├── vendor/ # → Composer packages(never edit )  
+├── composer.lock # → Composer lock file(never edit )  
+├── package-lock.json # → NPM lock file(never edit )  
+├── yarn-lock.json # → Yarn lock file(never edit )
 ├── pb-child.zip # → Child Theme  
-└── public/ # → Built theme assets (never edit)
+└── public/ # → Built theme assets(never edit )

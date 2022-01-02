@@ -27,10 +27,6 @@
     }
     , "repositories": [
         {
-            "type": "composer",
-            "url": "https://wpackagist.org/"
-        },
-        {
             "type": "git",
             "url": "git@github.com:denyshnatiuk/pb.git"
         }

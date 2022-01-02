@@ -6,5 +6,5 @@ return array(
         , 'wp-element'
         , 'wp-i18n'
         , 'wp-polyfill'
-        , 'wp-primitives')
-    , 'version' => 'd73e4200d78519ea8fde650843f8e22a');
+        , 'wp-primitives' )
+    , 'version' => 'd73e4200d78519ea8fde650843f8e22a' );
