@@ -1,3 +1,3 @@
 <?php
-//silence
-defined('ABSPATH' ) || die();
+// silence
+defined( 'ABSPATH' ) || die();

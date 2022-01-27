@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Pb
- *
  * Template for site branding
-*/
+ *
+ * @package Pb
+ */
 
 ?>
 
@@ -11,24 +11,20 @@
 	<div class="brand-logo">
 
 <?php
-if ( has_custom_logo()  ) :
-	the_custom_logo();
-	else :
-		// svg
-	endif;
-	?>
 
+if ( ! has_custom_logo()  ) :
+	// svg
+else :
+	the_custom_logo();
+endif;
+
+?>
 	</div>
 	<h1 class="brand-title">
-
 		<span class="brand-title__kicker">
-			<?
-			$color = get_theme_mod('brand_color_main' );
-			echo $color;				
-			?>
+<?php esc_html_e( get_theme_mod('brand_color_main' ), wp_get_theme()->get( 'TextDomain' ) ); ?>
 		</span>
-		<span class="brand-title__main"><?php echo get_bloginfo( 'title'  ); ?></span>
-		<span class="brand-title__tagline"><?php echo get_bloginfo( 'description'  ); ?></span>	  
-		
+		<span class="brand-title__main"><?php esc_html_e( get_bloginfo( 'title' ), wp_get_theme()->get( 'TextDomain' ) ); ?></span>
+		<span class="brand-title__tagline"><?php esc_html_e( get_bloginfo( 'description' ), wp_get_theme()->get( 'TextDomain' ) ); ?></span>	  
 	</h1>
 </div>

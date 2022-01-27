@@ -41,6 +41,8 @@
     <exclude-pattern>*/build/*</exclude-pattern>
 
     <rule ref="WordPress">
+        <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket" />
+        <exclude name="Generic.Commenting.DocComment.SpacingAfter" />
         <exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
         <exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterOpen" />
         <exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd" />

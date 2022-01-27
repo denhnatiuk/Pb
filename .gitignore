@@ -1,8 +1,8 @@
+.git/
+.idea/
+.temp/
 node_modules/
 vendor/
-.git
-.idea
-.temp
 package-lock.json
 yarn-lock.json
 composer.lock
