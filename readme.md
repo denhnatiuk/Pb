@@ -38,8 +38,11 @@ Inspired by:
 - Underscores https://underscores.me/,(C ) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html )
 - Sage https://roots.io/sage/,(C ) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html )
 
-### File structure
 
+<details>
+  <summary>File structure</summary>
+  
+```
 themes/pb/ # → Root of theme  
 ├── index.php # → Theme template wrapper  
 ├── style.css # → Theme meta information  
@@ -81,3 +84,5 @@ themes/pb/ # → Root of theme
 ├── yarn-lock.json # → Yarn lock file(never edit )
 ├── pb-child.zip # → Child Theme  
 └── public/ # → Built theme assets(never edit )
+```
+</details>
