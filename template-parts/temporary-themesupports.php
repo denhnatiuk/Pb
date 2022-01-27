@@ -4,23 +4,23 @@
 */
 
 $supports = (object ) array(
-	'title-tag'            => null,
-	'custom-logo'          => array(
-		'height'               => 100,
-		'width'                => 100,
-		'flex-height'          => true,
-		'flex-width'           => true,
-		'header-text'          => array(
+	'title-tag'			=> null,
+	'custom-logo'		  => array(
+		'height'			   => 100,
+		'width'				=> 100,
+		'flex-height'		  => true,
+		'flex-width'		   => true,
+		'header-text'		  => array(
 			'site-title',
 			'site-description',
 		 ),
 		'unlink-homepage-logo' => true,
 	 ),
-	'post-tumbnails'       => null,
-	'wp-block-styles'      => null,
-	'responsive-embeds'    => null,
-	'editor-styles'        => null,
-	'custom-units'         => null,
+	'post-tumbnails'	   => null,
+	'wp-block-styles'	  => null,
+	'responsive-embeds'	=> null,
+	'editor-styles'		=> null,
+	'custom-units'		 => null,
 	'editor-color-palette' => array(
 		array(
 			'name'  => esc_attr__(
@@ -55,7 +55,7 @@ $supports = (object ) array(
 			'color' => '#444',
 		 ),
 	 ),
-	'html5'                => array(
+	'html5'				=> array(
 		'search-form',
 		'comment-form',
 		'comment-list',

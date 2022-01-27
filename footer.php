@@ -3,8 +3,8 @@
  * Theme file for Site Footer
  *
  * @package Pb
- * @since           1.0.0
- * @link            https://codex.wordpress.org/Creating_an_Error_404_Page
+ * @since		   1.0.0
+ * @link			https://codex.wordpress.org/Creating_an_Error_404_Page
  */
 
 ?>
@@ -17,7 +17,7 @@
 		class="sr-only" >
 	</div>
 	<?php wp_footer(); ?>
-</footer>    
+</footer>	
 
 </body>
 </html>

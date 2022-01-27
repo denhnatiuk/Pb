@@ -24,11 +24,11 @@ if ( has_custom_logo()  ) :
 		<span class="brand-title__kicker">
 			<?
 			$color = get_theme_mod('brand_color_main' );
-			echo $color;                
+			echo $color;				
 			?>
 		</span>
 		<span class="brand-title__main"><?php echo get_bloginfo( 'title'  ); ?></span>
-		<span class="brand-title__tagline"><?php echo get_bloginfo( 'description'  ); ?></span>      
+		<span class="brand-title__tagline"><?php echo get_bloginfo( 'description'  ); ?></span>	  
 		
 	</h1>
 </div>

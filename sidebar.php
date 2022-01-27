@@ -1,15 +1,15 @@
 <?php
 /**
- * @package         pb
- * @since           1.0.0
- * @author          Den Hnatiuk
- * @copyright       Copyright(c ) 2021, Den Hnatiuk(@denhnatiuk )
- * @link            https://denyshnatiuk.github.io/Pb/
+ * @package		 pb
+ * @since		   1.0.0
+ * @author		  Den Hnatiuk
+ * @copyright	   Copyright(c ) 2021, Den Hnatiuk(@denhnatiuk )
+ * @link			https://denyshnatiuk.github.io/Pb/
  *
  * Description: Sidebar file.
 */
 ?> 
-<aside>
+<aside id="secondary" class="sidebar">
 <?php
 if ( is_active_sidebar( 'left-sidebar'  )  ) {
 	?>
@@ -20,4 +20,3 @@ if ( is_active_sidebar( 'left-sidebar'  )  ) {
 }
 ?>
 </aside>
-

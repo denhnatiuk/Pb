@@ -7,14 +7,14 @@
  * @author          Den Hnatiuk
  * @copyright       Copyright(c ) 2021, Den Hnatiuk(@denhnatiuk)
  * @link            https://denyshnatiuk.github.io/Pb/
- *
  */
 
-namespace Pb;
+// namespace Pb;
 
 defined( 'ABSPATH' ) || die();
 
 if ( ! class_exists( 'Pb' ) ) {
+	
 	final class Pb {
 
 		// TODO: is there security profit to use singleton?

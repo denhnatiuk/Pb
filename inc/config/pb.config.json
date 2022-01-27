@@ -1,99 +1,99 @@
 {
-    "textdomain": ["pb", "\/languages"]
-    , "ini_set": {
-        "upload_max_size":"64M"
-        , "post_max_size":"64M"
-        , "max_execution_time":"300"
-        , "output_buffering":"false"
-    }
-    , "theme_supports": {
-        "title-tag"                 : true
-        , "custom-logo": {
-            "height"                : 100
-            , "width"               : 100
-            , "flex-height"         : true
-            , "flex-width"          : true
-            , "header-text": ["site-title", "site-description"]
-            , "unlink-homepage-logo": true
-        }
-        , "custom-header":{
-            "default-image":""
-            , "random-default":false
-            , "width" : "100%"
-            , "height" : "100vh"
-            , "flex-height" : true
-            , "flex-width" : true
-            , "default-text-color": "#222" 
-            , "header-text" : true
-            , "uploads": true
-            , "wp-head-callback" :""
-            , "admin-head-callback" : ""
-            , "admin-preview-callback" : ""
-            , "video" : true
-            , "video-active-callback" : "is_front_page"
-        }
-        , "post-tumbnails"          : true
-        , "wp-block-styles"         : true
-        , "responsive-embeds"       : true
-        , "editor-styles"           : true
-        , "custom-units"            : true
-        , "editor-color-palette": [
-            {
-                "name"              : "strong magenta"
-                , "slug"            : "strong-magenta"
-                , "color"           : "#a156b4"
-            }, {
-                "name"              : "light grayish magenta"
-                , "slug"            : "light-grayish-magenta"
-                , "color"           : "#d0a5db"
-            }, {
-                "name"              : "very light gray"
-                , "slug"            : "very-light-gray"
-                , "color"           : "#eee"
-            }, {
-                "name"              : "very dark gray"
-                , "slug"            : "very-dark-gray"
-                , "color"           : "#444"
-            }
-        ]
-        , "html5": [
-            "search-form"
-            , "comment-form"
-            , "comment-list"
-            , "gallery"
-            , "caption"
-            , "style"
-            , "script"
-        ]
-    },
-    "stylesheets": {
-        "theme": {
-            "path": "\/style.css",
-            "version": "1.0.0.1631775277",
-            "dependencies": []
-        },
-        "main": {
-            "path": "\/assets\/css\/main.css",
-            "version": "1.0.0.1631775277",
-            "dependencies": []
-        }
-    },
-    "scripts": {
-        "theme-js": {
-            "path": "\/assets\/js\/bundle.js",
-            "version": "1.0.0.1631775277",
-            "dependencies": []
-        }
-    }
-    , "tweaks":{
-        "admin_init":[
-            "_maybe_update_core"
-            , "_maybe_update_plugins"
-            , "_maybe_update_themes"]
-        , "load-plugins.php" : "wp_update_plugins"
-        , "load-themes.php" : "wp_update_themes"
-    }
-    , "ui":{
-        
-    }
+	"textdomain": ["pb", "\/languages"]
+	, "ini_set": {
+		"upload_max_size":"64M"
+		, "post_max_size":"64M"
+		, "max_execution_time":"300"
+		, "output_buffering":"false"
+	}
+	, "theme_supports": {
+		"title-tag"				 : true
+		, "custom-logo": {
+			"height"				: 100
+			, "width"			   : 100
+			, "flex-height"		 : true
+			, "flex-width"		  : true
+			, "header-text": ["site-title", "site-description"]
+			, "unlink-homepage-logo": true
+		}
+		, "custom-header":{
+			"default-image":""
+			, "random-default":false
+			, "width" : "100%"
+			, "height" : "100vh"
+			, "flex-height" : true
+			, "flex-width" : true
+			, "default-text-color": "#222" 
+			, "header-text" : true
+			, "uploads": true
+			, "wp-head-callback" :""
+			, "admin-head-callback" : ""
+			, "admin-preview-callback" : ""
+			, "video" : true
+			, "video-active-callback" : "is_front_page"
+		}
+		, "post-tumbnails"		  : true
+		, "wp-block-styles"		 : true
+		, "responsive-embeds"	   : true
+		, "editor-styles"		   : true
+		, "custom-units"			: true
+		, "editor-color-palette": [
+			{
+				"name"			  : "strong magenta"
+				, "slug"			: "strong-magenta"
+				, "color"		   : "#a156b4"
+			}, {
+				"name"			  : "light grayish magenta"
+				, "slug"			: "light-grayish-magenta"
+				, "color"		   : "#d0a5db"
+			}, {
+				"name"			  : "very light gray"
+				, "slug"			: "very-light-gray"
+				, "color"		   : "#eee"
+			}, {
+				"name"			  : "very dark gray"
+				, "slug"			: "very-dark-gray"
+				, "color"		   : "#444"
+			}
+		]
+		, "html5": [
+			"search-form"
+			, "comment-form"
+			, "comment-list"
+			, "gallery"
+			, "caption"
+			, "style"
+			, "script"
+		]
+	},
+	"stylesheets": {
+		"theme": {
+			"path": "\/style.css",
+			"version": "1.0.0.1631775277",
+			"dependencies": []
+		},
+		"main": {
+			"path": "\/assets\/css\/main.css",
+			"version": "1.0.0.1631775277",
+			"dependencies": []
+		}
+	},
+	"scripts": {
+		"theme-js": {
+			"path": "\/assets\/js\/bundle.js",
+			"version": "1.0.0.1631775277",
+			"dependencies": []
+		}
+	}
+	, "tweaks":{
+		"admin_init":[
+			"_maybe_update_core"
+			, "_maybe_update_plugins"
+			, "_maybe_update_themes"]
+		, "load-plugins.php" : "wp_update_plugins"
+		, "load-themes.php" : "wp_update_themes"
+	}
+	, "ui":{
+		
+	}
 }

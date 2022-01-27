@@ -29,11 +29,10 @@
 	?>
 
 	</main>
-	<!-- <aside id="secondary" class="sidebar"> -->
+
 
 <?php  get_sidebar(); ?>
 
-	<!-- </aside> -->
 
 <?php get_footer();?>
 
