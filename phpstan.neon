@@ -1,0 +1,37 @@
+parameters:
+    level: max
+    scanFiles:
+        - %rootDir%/../../php-stubs/wordpress-stubs/wordpress-stubs.php
+        - %rootDir%/../../php-stubs/wp-cli-stubs/wp-cli-stubs.php
+        - %rootDir%/../../php-stubs/wp-cli-stubs/wp-cli-commands-stubs.php
+        - %rootDir%/../../php-stubs/wp-cli-stubs/wp-cli-i18n-stubs.php
+
+# includes:
+# - /home/denhnatiuk/.config/composer/vendor/phpstan/phpstan-strict-rules/rules.neon
+# - /home/denhnatiuk/.config/composer/vendor/szepeviktor/phpstan-wordpress/extension.neon
+# parameters:
+#   level: max
+#   phpVersion: 70400
+#   inferPrivatePropertyTypeFromConstructor: true
+# scanFiles:
+#   - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
+#   - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+# paths:
+#   - inc/classes
+#   - ./
+# ignoreErrors:
+#   # WP-CLI accepts a class as callable
+#   - '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'
+# strictRules:
+#   disallowedLooseComparison: false
+#   booleansInConditions: false
+#   uselessCast: false
+#   requireParentConstructorCall: false
+#   disallowedConstructs: false
+#   overwriteVariablesWithLoop: false
+#   closureUsesThis: false
+#   matchingInheritedMethodNames: false
+#   numericOperandsInArithmeticOperators: false
+#   strictCalls: false
+#   switchConditionsMatchingType: false
+#   noVariableVariables: false
