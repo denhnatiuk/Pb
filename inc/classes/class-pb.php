@@ -53,7 +53,7 @@ if ( ! class_exists( 'Pb' ) ) {
 					'warning'
 				);
 			}
-			$this->setup_loop( $theme_config );
+			$this->setup_loop( $theme_config=array() );
 		}
 
 		/**
